@@ -1,6 +1,8 @@
 <?PHP
 
-include_once(dirname(__FILE__) . '../../CaptionsUnitTestCase.php');
+use snikch\captions\renderer\SrtRenderer;
+
+include_once(dirname(__FILE__) . '/../CaptionsUnitTestCase.php');
 
 class Captions_Renderer_SrtRendererSystemTest extends CaptionsUnitTestCase
 {
@@ -8,9 +10,9 @@ class Captions_Renderer_SrtRendererSystemTest extends CaptionsUnitTestCase
 	{
 		$captions = $this->_simple_captions_set();
 
-		$renderer = new Captions_Renderer_SrtRenderer();
+		$renderer = new SrtRenderer();
 
-		$this->assertEqual($renderer->render($captions), $this->_srt_string());
+		$this->assertSame($renderer->render($captions), $this->_srt_string());
 	}
 }
 

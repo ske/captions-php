@@ -1,6 +1,6 @@
 <?PHP
-
-class Captions_Helper_DfxpHelper
+namespace snikch\captions\helper;
+class DfxpHelper
 {
 	public function string_to_time($string)
 	{

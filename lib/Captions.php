@@ -1,16 +1,24 @@
 <?PHP
 
+namespace snikch;
+
+use snikch\captions\parser\Exception;
+use snikch\captions\parser\SrtParser;
+use snikch\captions\renderer\DfxpRenderer;
+use snikch\captions\renderer\SrtRenderer;
+use snikch\captions\Set;
+
 class Captions
 {
 	public static function from_srt($content)
 	{
-		$parser = new Captions_Parser_SrtParser($content);
+		$parser = new SrtParser($content);
 		return $parser->parse();
 	}
 
-	public static function to_srt(Captions_Set $captions, $file = null)
+	public static function to_srt(Set $captions, $file = null)
 	{
-		$renderer = new Captions_Renderer_SrtRenderer();
+		$renderer = new SrtRenderer();
 		return $renderer->render($captions, $file);
 	}
 
@@ -23,14 +31,14 @@ class Captions
 
 	public static function from_dfxp($content)
 	{
-		throw new Captions_Parser_Exception('No Dfxp Parser has been implemented');
-		$parser = new Captions_Parser_DfxpParser($content);
+		throw new Exception('No Dfxp Parser has been implemented');
+		$parser = new DfxpParser($content);
 		return $parser->parse();
 	}
 
-	public static function to_dfxp(Captions_Set $captions, $file = null)
+	public static function to_dfxp(Set $captions, $file = null)
 	{
-		$renderer = new Captions_Renderer_DfxpRenderer();
+		$renderer = new DfxpRenderer();
 		return $renderer->render($captions, $file);
 	}
 

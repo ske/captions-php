@@ -1,7 +1,9 @@
 <?PHP
+namespace snikch\captions\renderer;
+use snikch\captions\helper\SrtHelper;
 
-class Captions_Renderer_SrtRenderer
-	implements Captions_Renderer
+
+class SrtRenderer implements \snikch\captions\Renderer
 {
 	public function render($caption_set, $file = false)
 	{
@@ -11,8 +13,8 @@ class Captions_Renderer_SrtRenderer
 		{
 			$captions[] = sprintf("%d\n%s --> %s\n%s",
 				$index+1,
-				Captions_Helper_SrtHelper::time_to_string($caption->start()),
-				Captions_Helper_SrtHelper::time_to_string($caption->end()),
+				SrtHelper::time_to_string($caption->start()),
+				SrtHelper::time_to_string($caption->end()),
 				$caption->text()
 			);
 		}

@@ -1,6 +1,8 @@
 <?PHP
 
-include_once(dirname(__FILE__) . '../../CaptionsUnitTestCase.php');
+use snikch\captions\renderer\DfxpRenderer;
+
+include_once(dirname(__FILE__) . '/../CaptionsUnitTestCase.php');
 
 class Captions_Renderer_DfxpRendererSystemTest extends CaptionsUnitTestCase
 {
@@ -8,9 +10,9 @@ class Captions_Renderer_DfxpRendererSystemTest extends CaptionsUnitTestCase
 	{
 		$captions = $this->_simple_captions_set();
 
-		$renderer = new Captions_Renderer_DfxpRenderer();
+		$renderer = new DfxpRenderer();
 
-		$this->assertEqual(trim($renderer->render($captions)), $this->_dfxp_string());
+		$this->assertSame(trim($renderer->render($captions)), $this->_dfxp_string());
 	}
 }
 

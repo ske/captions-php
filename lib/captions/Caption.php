@@ -1,6 +1,8 @@
 <?PHP
 
-class Captions_Caption
+namespace snikch\captions;
+
+class Caption
 {
 	protected $_start;
 	protected $_end;
@@ -49,7 +51,7 @@ class Captions_Caption
 	public function duration()
 	{
 		if(is_null($this->end()) || is_null($this->start()))
-			throw new Captions_Exception("Cannot return duration for a caption missing a start or end value");
+			throw new Exception("Cannot return duration for a caption missing a start or end value");
 
 		return $this->_end - $this->_start;
 	}

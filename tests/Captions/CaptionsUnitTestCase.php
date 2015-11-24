@@ -1,6 +1,10 @@
 <?PHP
 
-class CaptionsUnitTestCase extends UnitTestCase
+use snikch\captions\Caption;
+use snikch\captions\renderer\SrtRenderer;
+use snikch\captions\Set;
+
+class CaptionsUnitTestCase extends \PHPUnit_Framework_TestCase
 {
 	protected function _srt_string()
 	{
@@ -16,17 +20,17 @@ Text Two";
 
 	protected function _simple_captions_set()
 	{
-		$match = new Captions_Set;
-		$match->renderer(new Captions_Renderer_SrtRenderer());
+		$match = new Set;
+		$match->renderer(new SrtRenderer());
 
-		$caption = new Captions_Caption;
+		$caption = new Caption;
 		$caption->text('Text One')
 			->start(0)
 			->end(30.105);
 
 		$match->add_caption($caption);
 
-		$caption = new Captions_Caption;
+		$caption = new Caption;
 		$caption->text('Text Two')
 			->start(30)
 			->end(60.05);

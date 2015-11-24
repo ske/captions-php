@@ -1,6 +1,6 @@
 <?PHP
-
-class Captions_Set
+namespace snikch\captions;
+class Set
 {
 	protected $_captions;
 	protected $_renderer;

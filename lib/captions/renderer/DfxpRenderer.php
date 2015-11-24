@@ -2,9 +2,11 @@
 
 // http://www.w3.org/TR/2010/PR-ttaf1-dfxp-20100914/
 // http://www.longtailvideo.com/support/addons/captions-plugin/14974/captions-plugin-reference-guide#W3CTimedText
+namespace snikch\captions\renderer;
+use snikch\captions\helper\DfxpHelper;
+use snikch\captions\Renderer;
 
-class Captions_Renderer_DfxpRenderer
-	implements Captions_Renderer
+class DfxpRenderer implements Renderer
 {
 
 	public function set_element($name, $value)
@@ -15,7 +17,7 @@ class Captions_Renderer_DfxpRenderer
 
 	public function render($caption_set, $file = false)
 	{
-		$dom = new DOMDocument("1.0");
+		$dom = new \DOMDocument("1.0");
 		$dom->formatOutput = true;
 
 		$root = $dom->createElement('tt');
@@ -37,13 +39,13 @@ class Captions_Renderer_DfxpRenderer
 
 			$from = $dom->createAttribute('begin');
 			$from->appendChild($dom->createTextNode(
-				Captions_Helper_DfxpHelper::time_to_string($caption->start())
+				DfxpHelper::time_to_string($caption->start())
 			));
 			$entry->appendChild($from);
 
 			$to = $dom->createAttribute('end');
 			$to->appendChild($dom->createTextNode(
-				Captions_Helper_DfxpHelper::time_to_string($caption->end())
+				DfxpHelper::time_to_string($caption->end())
 			));
 			$entry->appendChild($to);
 

@@ -1,0 +1,12 @@
+{
+	"name": "snikch/captions-php",
+	"description": "PHP classes for manipulating video Closed Captions (subtitle) files",
+    "license": "MIT",
+	"minimum-stability": "dev",
+	"require-dev": {
+		"phpunit/phpunit": "5.0.*"
+	},
+	"autoload": {
+		"psr-4": {"snikch\\": "lib/"}
+	}
+}
